@@ -10,6 +10,7 @@ def has_director_made_genre(movies, director, genre):
     return any(genre in movie.genres and movie.director == director for movie in movies)
 
 
+
 def is_prime(n):
     return all(n % k != 0 for k in range(2, n)) and n >= 2
 

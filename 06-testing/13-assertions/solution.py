@@ -11,7 +11,7 @@ def contain_same_elements(xs, ys):
 
 def split_in_two(ns):
     middle = len(ns) // 2
-    left = ns[:middle]
+    left = ns[:middle] 
     right = ns[middle:]
     assert left + right == ns
     assert abs(len(left)  - len(right)) <= 1

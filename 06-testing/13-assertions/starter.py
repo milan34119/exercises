@@ -1,7 +1,13 @@
+from collections import Counter
+
+def contain_same_elements(xs, ys):
+    return Counter(xs) == Counter(ys)
+
 def split_in_two(ns):
     middle = len(ns) // 2
     left = ns[:middle]
     right = ns[middle:]
+    assert not contain_same_elements(left, right)
     return (left, right)
 
 
@@ -18,6 +24,7 @@ def merge_sorted(ks, ns):
             j += 1
     result.extend(ks[i:])
     result.extend(ns[j:])
+    assert 
     return result
 
 

@@ -3,31 +3,23 @@ from datetime import date, timedelta
 from calendars import CalendarStub
 from tasks import Task, TaskList
 
+def get_today():
+    return date.today()
 
-@pytest.fixture
-def today():
-    return date(2000, 1, 1)
+def get_tomorrow(today):
+    return today + timedelta(days=1)
 
+def get_yesterday(today):
+    return today - timedelta(days=1)
 
-@pytest.fixture
-def tomorrow(today):
-    return today + timedelta(days = 1)
-
-
-@pytest.fixture
-def yesterday(today):
-    return today - timedelta(days = 1)
-
-
-@pytest.fixture
-def calendar(today):
+def get_calendar(today):
     return CalendarStub(today)
 
-
-@pytest.fixture
-def sut(calendar):
+def get_sut(calendar):
     return TaskList(calendar)
 
+def create_task(task):
+    return Task('Boefje aaien', 'Lalala')
 
 def test_creation(sut):
     # Assert
